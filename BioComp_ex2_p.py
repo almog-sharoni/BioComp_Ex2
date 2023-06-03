@@ -246,4 +246,13 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
             f.write(res)
             f.write('\n')
 
+
+def main():
+    save_motifs_range(1, 10, verbose=True)
+
+
+if __name__ == '__main__':
+    main()
+
+
 # save_motifs_range(5)
