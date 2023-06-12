@@ -97,11 +97,14 @@
 #
 #
 # main()
+import timeit
 
 import networkx as nx
 import itertools
 import time
 import os
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def mask_list(n, mask):
@@ -246,25 +249,4 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
             f.write(res)
             f.write('\n')
 
-
-def ex1():
-    save_motifs_range(1, 10, verbose=True)
-
-
-def ex2(n, str_subgraph):
-    '''
-    gets n and a graph of n nodes and returns all the sub-graphs with n nodes and count how many motifs there are in
-    our graph
-    '''
-
-
-
-
-
-
-
-
-if __name__ == '__main__':
-    ex1()
-
-# save_motifs_range(5)
+save_motifs_range(5)
