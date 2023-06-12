@@ -247,12 +247,24 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
             f.write('\n')
 
 
-def main():
+def ex1():
     save_motifs_range(1, 10, verbose=True)
 
 
-if __name__ == '__main__':
-    main()
+def ex2(n, str_subgraph):
+    '''
+    gets n and a graph of n nodes and returns all the sub-graphs with n nodes and count how many motifs there are in
+    our graph
+    '''
 
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    ex1()
 
 # save_motifs_range(5)
