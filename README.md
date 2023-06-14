@@ -29,6 +29,6 @@ To run the code: the steps are the same for each part of the exercise .
 1. open the .py file of part 1 or 2
 2. chack that all libraries are known to the IDE
 2a. If not : install them , else continue to step 3.
-3. Run the code 
-4. The code will generate a .txt file with the current date and time in the formt : 
-5. 5. Open the file and examin the results.
+3. Run the code and enter N when asked (in part 2 you will be asked, in part 1 you need to change it manually 
+4. The code will generate a .txt file with the current date and time in the formt : M-<month>-D-<day>-<value>-T-<hour>-<minute>-<seconds>.txt
+5. Open the file and examin the results.
