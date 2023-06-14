@@ -23,3 +23,12 @@ BioComp_Ex2
 10. `save_motifs(n, path='.', verbose=False)`: This function saves a file with the details of a graph of `n` nodes. It takes an integer `n`, an optional string `path` representing the file path (default is '.'), and an optional Boolean `verbose` flag (default is `False`).
 
 11. `save_motifs_range(start, end=None, path='.', verbose=False)`: This function saves a file with details on all graphs in the range `[start, end]` or `[1, start]` if `end` is `None`. It takes an integer `start`, an optional integer `end` (default is `None`), an optional string `path` representing the file path (default is '.'), and an optional Boolean `verbose` flag (default is `False`).
+
+
+To run the code: the steps are the same for each part of the exercise .
+1. open the .py file of part 1 or 2
+2. chack that all libraries are known to the IDE
+2a. If not : install them , else continue to step 3.
+3. Run the code 
+4. The code will generate a .txt file with the current date and time in the formt : 
+5. 5. Open the file and examin the results.
