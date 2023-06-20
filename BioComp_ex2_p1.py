@@ -150,3 +150,25 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
             f.write('\n')
 
 #save_motifs_range(5)
+
+
+# run on different n's and save the running time
+running_times = np.zeros(6)
+for n in range(1, 7):
+    start = timeit.default_timer()
+    save_motifs(n)
+    end = timeit.default_timer()
+    running_times[n - 1] = end - start
+
+# plot the running time
+plt.plot(range(1, 7), running_times)
+plt.xlabel('n')
+plt.ylabel('running time [sec]')
+plt.title('running time as a function of n')
+plt.show()
+
+# save the running time to a file and note which n the running time is for
+with open('running_times.txt', 'w') as f:
+    f.write('n\ttime\n')
+    for n, t in enumerate(running_times):
+        f.write(f'{n + 1}\t{t}\n')
