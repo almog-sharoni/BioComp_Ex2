@@ -154,15 +154,15 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
 
 
 # run on different n's and save the running time
-running_times = np.zeros(6)
-for n in tqdm.tqdm(range(1, 7)):
+running_times = np.zeros(5)
+for n in tqdm.tqdm(range(1, 6)):
     start = timeit.default_timer()
     save_motifs(n)
     end = timeit.default_timer()
     running_times[n - 1] = end - start
 
 # plot the running time
-plt.plot(range(1, 7), running_times)
+plt.plot(range(1, 6), running_times)
 plt.xlabel('n')
 plt.ylabel('running time [sec]')
 plt.title('running time as a function of n')
