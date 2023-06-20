@@ -5,6 +5,7 @@ import time
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import tqdm
 
 
 def mask_list(n, mask):
@@ -154,7 +155,7 @@ def save_motifs_range(start, end=None, path='.', verbose=False):
 
 # run on different n's and save the running time
 running_times = np.zeros(6)
-for n in range(1, 7):
+for n in tqdm.tqdm(range(1, 7)):
     start = timeit.default_timer()
     save_motifs(n)
     end = timeit.default_timer()
