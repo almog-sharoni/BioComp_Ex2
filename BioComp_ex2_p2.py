@@ -78,7 +78,7 @@ def k_motifs(n, k):
     return connected_graphs
 
 
-def all_motifs(n, format='list', verbose=False):
+def all_motifs(n, format='list'):
     '''
     return all graphs of n nodes which are connected, that are unique up to isomorphism
     list them and the sum of how many are there
@@ -88,7 +88,7 @@ def all_motifs(n, format='list', verbose=False):
     for k in range(n - 1, n ** 2 - n + 1):
         # Go over all the graphs of size k \in [n-1,n**2-n] (if k<n-1 the graph cannot be connected)
         if format == 'list':
-            cur_str, cur_count = k_motifs_to_str(n, k, verbose)
+            cur_str, cur_count = k_motifs_to_str(n, k)
         else:
             motifs = k_motifs(n, k)
             cur_str, cur_count = sum_k_motifs(motifs, verbose=verbose)
@@ -115,7 +115,7 @@ def motif_to_str(motif, verbose=False):
     return motif_str
 
 
-def k_motifs_to_str(n, k, verbose=False):
+def k_motifs_to_str(n, k):
     if n <= 1:
         return '', 0
     motifs = k_motifs(n, k)
@@ -130,18 +130,16 @@ def k_motifs_to_str(n, k, verbose=False):
     return res, count
 
 
-def main_n(n, format='list', verbose=False):
+def main_n(n, format='list'):
     '''
     give the result for the question for graph of size n
     '''
-    res_str, count = all_motifs(n, format='list', verbose=verbose)
+    res_str, count = all_motifs(n, format='list')
     res_str = f'n={n}\ncount={count}\n' + res_str
-    if verbose:
-        print(f'n={n}\ncount={count}')
     return res_str
 
 
-def save_motifs(n, path='.', verbose=False):
+def save_motifs(n, path='.'):
     '''
     save a file with the details of graph of n nodes
     '''
@@ -150,7 +148,7 @@ def save_motifs(n, path='.', verbose=False):
     file_name = f'M-{n}-{stamp}.txt'
     full_path = os.path.join(path, file_name)
     with open(full_path, 'w') as f:
-        f.write(main_n(n, verbose))
+        f.write(main_n(n))
 
 
 def getNfromUser():
@@ -188,12 +186,6 @@ def main():
     # print(list(graph.edges))
     # call p1 code
     save_motifs(int(N))
-
-
-
-
-
-
 
 
 if __name__ == "__main__":

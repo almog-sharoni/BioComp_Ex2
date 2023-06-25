@@ -58,7 +58,7 @@ def k_motifs(n, k):
     return connected_graphs
 
 
-def all_motifs(n, format='list', verbose=False):
+def all_motifs(n, format='list'):
     '''
     return all graphs of n nodes which are connected, that are unique up to isomorphism
     list them and the sum of how many are there
@@ -68,30 +68,28 @@ def all_motifs(n, format='list', verbose=False):
     for k in range(n - 1, n ** 2 - n + 1):
         # Go over all the graphs of size k \in [n-1,n**2-n] (if k<n-1 the graph cannot be connected)
         if format == 'list':
-            cur_str, cur_count = k_motifs_to_str(n, k, verbose)
+            cur_str, cur_count = k_motifs_to_str(n, k)
         else:
             motifs = k_motifs(n, k)
-            cur_str, cur_count = sum_k_motifs(motifs, verbose=verbose)
+            cur_str, cur_count = sum_k_motifs(motifs)
         str_all_motifs += cur_str
         sum += cur_count
     return str_all_motifs, sum
 
 
-def sum_k_motifs(motifs, verbose=False):
+def sum_k_motifs(motifs):
     count = 0
     str_k_motifs = ''
     for motif in motifs:
-        str_k_motifs += motif_to_str(motif, verbose)
+        str_k_motifs += motif_to_str(motif)
         count += 1
     return str_k_motifs, count
 
 
-def motif_to_str(motif, verbose=False):
+def motif_to_str(motif):
     motif_str = f'#k={motif.number_of_edges()}\n'
     for u, v, d in motif.edges.data():
         motif_str += f'{u} {v}\n'
-    if verbose:
-        print(motif_str)
     return motif_str
 
 
@@ -108,18 +106,17 @@ def k_motifs_to_str(n, k, verbose=False):
     return res, count
 
 
-def main_n(n, format='list', verbose=False):
+def main_n(n, format='list'):
     '''
     give the result for the question for graph of size n
     '''
-    res_str, count = all_motifs(n, format='list', verbose=verbose)
+    res_str, count = all_motifs(n, format='list')
     res_str = f'n={n}\ncount={count}\n' + res_str
-    if verbose:
-        print(f'n={n}\ncount={count}')
+
     return res_str
 
 
-def save_motifs(n, path='.', verbose=False):
+def save_motifs(n, path='.'):
     '''
     save a file with the details of graph of n nodes
     '''
@@ -128,7 +125,7 @@ def save_motifs(n, path='.', verbose=False):
     file_name = f'M-{n}-{stamp}.txt'
     full_path = os.path.join(path, file_name)
     with open(full_path, 'w') as f:
-        f.write(main_n(n, verbose))
+        f.write(main_n(n))
 
 
 def save_motifs_range(start, end=None, path='.', verbose=False):
